@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>PUBLISO</title>
+<link rel="stylesheet" href="stylesheets/estilos.css">
+<link rel="stylesheet" href="stylesheets/mini-default.min.css">
+</head>
+
+<body>
+<%- include('./partials/encabezado_publico') %>
+<div class="container">
+<img src="images/fondo.jpg" width="100%">
+<h1>Inicio</h1>
+<p>Aquí publicamos tu negocio:</p>
+
+<div class="row">
+<div class="col-sm-12">
+<form class="buscador" action="/">
+<label for="busqueda">Buscar Negocio</label>
+<input type="text" id="busqueda" name="busqueda" value="<%=busqueda%>"/>
+<button type="submit"><span class="icon-search"></span>Buscar</button>
+</form>
+</div>
+</div>
+     
+<div class="row">
+<% negocios.forEach(negocio => { %>
+<div class="col-xs-12 col-sm-12 col-md-6" align-items="center">
+    
+<div class="card fluid">
+    <div class="card fluid" text-align="center"><h2><a href="/negocios/<%=negocio.id%>"><%=negocio.nombre%></a></h2>
+    </div>
+    <div class="card fluid" text-align="center">
+    <% if (negocio.imagen && negocio.imagen !="") { %>
+        <img class="foto" src="/fotos/<%=negocio.imagen%>" />
+        <%} else{ 
+        %>
+        <span class="icon-user"></span>
+        <%}%>
+
+    </div>
+<h4>Categoria: <%=negocio.categoria%></h4>
+
+
+<mark class="tag">
+    <h5><%=negocio.descripcion%></h5><h5>Dirección: <%=negocio.direccion%></h5></mark>
+    
+    <h4>Celular: <%=negocio.celular%>   -   Telefono: <%=negocio.telefono %>  -   Correo: <%=negocio.email %>  - Pagina web: <%=negocio.paginaweb %></h4>
+   
+
+    
+    
+
+  
+        
+    </div>
+    </div>
+    <% }) %>
+
+    </div>
+
+
+</div>
+  
+    <div class="row">
+    <div class="col-sm-12">
+    <p class="centrado">
+    <a href="/?pagina=<%=pagina-1%>"><< Anterior</a>
+|
+<a href="/?pagina=<%=pagina+1%>">Siguiente >>
+</a>
+</p>
+</div>
+</div>
+
+
+<script src="javascripts/script.js"></script>
+</body>
+<%- include('./partials/pie') %>
+</html>
