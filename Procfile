@@ -1,1 +1,1 @@
-web: nodo webapp.js
+web: node webapp.js
