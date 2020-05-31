@@ -227,4 +227,6 @@ aplicacion.use(rutasMiddleware)
 aplicacion.use(rutasPublicas)
 aplicacion.use(rutasPrivadas)
 
-aplicacion.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+aplicacion.listen(5000, function(){
+  console.log("Servidor iniciado")
+})
