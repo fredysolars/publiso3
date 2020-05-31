@@ -207,6 +207,6 @@ aplicacion.use(rutasMiddleware)
 aplicacion.use(rutasPublicas)
 aplicacion.use(rutasPrivadas)
 
-aplicacion.listen(3600, function(){
+aplicacion.listen(59235, function(){
   console.log("Servidor iniciado")
 })
