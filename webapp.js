@@ -13,7 +13,6 @@ const rutasPrivadas = require('./routes/privadas')
 
 aplicacion.use(bodyParser.json())
 aplicacion.use(bodyParser.urlencoded({ extended: true }))
-aplicacion.set("view engine", "ejs")
 aplicacion.use(session({ secret: 'token-muy-secreto', resave: true, saveUninitialized: true }));
 aplicacion.use(flash())
 aplicacion.use(express.static('public'))
