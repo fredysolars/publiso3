@@ -12,15 +12,6 @@ const transporter = nodemailer.createTransport({
   }
 })
 
-/*
-var pool = mysql.createPool({
-  connectionLimit: 20,
-  host: 'localhost',
-  user: 'root',
-  password: 'root23',
-  database: 'publix'
-})
-*/
 var pool = mysql.createPool({
   connectionLimit: 20,
   host: 'us-cdbr-east-05.cleardb.net',
@@ -43,21 +34,7 @@ function enviarCorreoBienvenida(email, nombre){
 
 router.get('/', (peticion, respuesta) => {
   pool.getConnection((err, connection) => {
-      /*
-    const consulta = `
-      SELECT
-      titulo, resumen, fecha_hora, pseudonimo, voto
-      FROM publicaciones
-      INNER JOIN autor
-      ON publicaciones.autor_id = autor.id
-      ORDER BY fecha_hora DESC
-      LIMIT 5
-    `
-    connection.query(consulta, (error, filas, campos) => {
-      respuesta.render('index', { publicaciones: filas })
-    })
-    connection.release()
-  */
+      
    let consulta
     let modificadorConsulta = ""
     let modificadorPagina = ""
@@ -217,24 +194,7 @@ router.get('/negocios/:id', (peticion, respuesta) => {
     connection.release()
   })
 })
-/*
-router.get('/autores', (peticion, respuesta) => {
-  pool.getConnection((err, connection) => {
-    const consulta = `
-      SELECT *
-      FROM autor
-      ORDER BY id DESC
-    `
-    connection.query(consulta, (error, filas, campos) => {
-      respuesta.render('autores', { autores1: filas })
-    })
 
-
-    connection.release()
-  })
-})
-
-*/
 router.get('/autores', (peticion, respuesta) => {
   pool.getConnection((err, connection) => {
     const consulta = `
