@@ -5,7 +5,7 @@ const aplicacion = express()
 
 
 const bodyParser = require('body-parser')
-const session = require('express-session')
+const session = require('cookie-session')
 const flash = require('express-flash')
 const fileUpload = require('express-fileupload')
 
