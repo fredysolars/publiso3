@@ -7,8 +7,8 @@ var nodemailer=require('nodemailer')
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user:'fredysolars@gmail.com',
-    pass:'Mundial_25252010'
+    user:'',
+    pass:''
   }
 })
 
