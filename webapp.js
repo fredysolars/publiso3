@@ -24,8 +24,11 @@ aplicacion.use(rutasMiddleware)
 aplicacion.use(rutasPublicas)
 aplicacion.use(rutasPrivadas)
 
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .listen(PORT, () => console.log(`Servidor iniciado on ${ PORT }`))
+
+aplicacion.listen(PORT, function(){
+    console.log(`Servidor iniciado on ${ PORT }`)
+  })
+
+
+
 
